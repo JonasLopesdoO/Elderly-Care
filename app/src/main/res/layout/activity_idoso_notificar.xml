@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/layoutMain"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:orientation="vertical"
+        tools:context=".IdosoNotificarActivity">
+
+    <TextView
+            android:id="@+id/textTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="CLIQUE NA TELA PARA NOTIFICAR O SEU CUIDADOR"
+            android:textSize="25sp"/>
+
+    <TextView
+            android:id="@+id/txtNotificacao1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="200dp"
+            android:text="Aperte uma vez se você quer beber água."
+            android:textSize="20sp"/>
+
+    <TextView
+            android:id="@+id/txtNotificacao2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:text="Aperte duas vezes se você deseja ir ao banheiro."
+            android:textSize="20sp"/>
+
+    <TextView
+            android:id="@+id/txtNotificacao3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:text="Aperte e segure se você não está se sentindo bem."
+            android:textSize="20sp"/>
+
+</LinearLayout>

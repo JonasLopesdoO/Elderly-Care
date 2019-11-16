@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/layoutMain"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:orientation="vertical"
+        tools:context=".IdosoActivity">
+
+    <TextView
+            android:id="@+id/textTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="SEÇÃO DO IDOSO \nELDERLY CARE"
+            android:textSize="25sp"/>
+
+    <TextView
+            android:id="@+id/txtTituloIdoso"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_marginTop="200dp"
+            android:text="Você ainda não é cadastrado. Copie o número gerado abaixo e coloque no campo de texto de aplicativo do seu cuidador."
+            android:textSize="20sp"/>
+
+    <TextView
+            android:text="Código do Idoso:"
+            android:layout_width="match_parent"
+            android:layout_height="57dp"
+            android:textStyle="bold"
+            android:layout_marginTop="100dp"
+            android:id="@+id/textViewCodigoInfo"
+            android:textSize="25sp"
+            android:textAlignment="center"/>
+
+    <TextView
+            android:text="..."
+            android:layout_width="match_parent"
+            android:layout_height="57dp"
+            android:textStyle="bold|italic"
+            android:id="@+id/textViewCodigo"
+            android:textSize="25sp"
+            android:textAlignment="center"/>
+
+</LinearLayout>

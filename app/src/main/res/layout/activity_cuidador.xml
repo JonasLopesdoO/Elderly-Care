@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:orientation="vertical"
+        tools:context=".CuidadorActivity">
+
+    <TextView
+            android:id="@+id/textTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="SEÇÃO DO CUIDADOR \n ELDERLY CARE"
+            android:textSize="25sp"/>
+
+    <TextView
+            android:id="@+id/txtTituloCuidador"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_marginTop="200dp"
+            android:text="Insira no campo de texto abaixo o número que foi gerado no app do seu idoso:"
+            android:textSize="20sp"/>
+
+    <TextView
+            android:text="Código do Idoso:"
+            android:layout_width="match_parent"
+            android:layout_height="57dp"
+            android:textStyle="bold"
+            android:layout_marginTop="50dp"
+            android:id="@+id/textViewCodigoInfo"
+            android:textSize="25sp"
+            android:textAlignment="center"/>
+
+    <EditText
+            android:id="@+id/edtCodigoIdoso"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Código do idoso"
+            android:inputType="number"/>
+    <Button
+            android:text="Cadastrar idoso aos seus cuidados"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="50dp"
+            android:id="@+id/btnCadastrarIdoso"/>
+
+</LinearLayout>

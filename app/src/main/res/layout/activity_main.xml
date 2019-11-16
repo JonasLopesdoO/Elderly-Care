@@ -21,10 +21,36 @@
             android:textSize="25sp"/>
 
     <!--<ImageView
-            android:layout_width="match_parent"
-            android:layout_height="350dp" app:srcCompat="@drawable/idoso2"
-            android:id="@+id/imageView"/>-->
+          android:layout_width="match_parent"
+          android:layout_height="350dp" app:srcCompat="@drawable/idoso2"
+          android:id="@+id/imageView"/>-->
     <TextView
+            android:id="@+id/txtTituloMain"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_marginTop="20dp"
+            android:text="Olá, selecione uma das opções."
+            android:textSize="25sp"/>
+
+    <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center">
+
+        <Button
+                android:text="SOU IDOSO"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:id="@+id/btnIdoso"/>
+        <Button
+                android:text="SOU CUIDADOR"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:id="@+id/btnCuidador"/>
+    </LinearLayout>
+
+
+    <!--<TextView
             android:text="Condition"
             android:layout_width="match_parent"
             android:layout_height="57dp"
@@ -46,5 +72,5 @@
                 android:text="SUNNY"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" android:id="@+id/btnSunny"/>
-    </LinearLayout>
+    </LinearLayout>-->
 </LinearLayout>

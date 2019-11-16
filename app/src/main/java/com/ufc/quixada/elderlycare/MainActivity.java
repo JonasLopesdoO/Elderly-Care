@@ -1,64 +1,43 @@
 package com.ufc.quixada.elderlycare;
 
-import android.support.annotation.NonNull;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.ValueEventListener;
 
 public class MainActivity extends AppCompatActivity {
 
-    TextView mConditionTextView;
-    Button mButtonSunny;
-    Button mButtonFoggy;
-
-    DatabaseReference mRootRef = ConfiguracaoFirebase.getFirebase();
-    DatabaseReference mIdosoRef = mRootRef.child("idoso");
+    Button buttonIdoso, buttonCuidador;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        buttonIdoso = findViewById(R.id.btnIdoso);
+        buttonCuidador = findViewById(R.id.btnCuidador);
 
-        mConditionTextView = findViewById(R.id.textViewCondition);
-        mButtonSunny = findViewById(R.id.btnSunny);
-        mButtonFoggy = findViewById(R.id.btnFoggy);
+        buttonIdoso.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, IdosoActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        buttonCuidador.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, CuidadorActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     @Override
-    protected void onStart() {
-        super.onStart();
-
-        mIdosoRef.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                String text = dataSnapshot.getValue(String.class);
-                mConditionTextView.setText(text);
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-        });
-
-        mButtonSunny.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mIdosoRef.setValue("Sunny");
-            }
-        });
-
-        mButtonFoggy.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mIdosoRef.setValue("Foggy");
-            }
-        });
+    public void onBackPressed() {
+        this.moveTaskToBack(true);
     }
 }
