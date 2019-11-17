@@ -25,7 +25,7 @@
             android:id="@+id/txtNotificacao1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="200dp"
+            android:layout_marginTop="100dp"
             android:text="Aperte uma vez se você quer beber água."
             android:textSize="20sp"/>
 
