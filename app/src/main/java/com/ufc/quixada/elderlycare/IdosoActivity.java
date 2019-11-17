@@ -3,6 +3,7 @@ package com.ufc.quixada.elderlycare;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.TextView;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -41,6 +42,12 @@ public class IdosoActivity extends AppCompatActivity {
     protected void onStop() {
         super.onStop();
         codigoRef.setValue(codigo+1);
+        salvarPreferencias();
+    }
+
+    private void salvarPreferencias() {
+        Preferencias preferencias = new Preferencias(IdosoActivity.this);
+        preferencias.salvarUsuarioPreferencias("idoso", codigo);
     }
 }
 

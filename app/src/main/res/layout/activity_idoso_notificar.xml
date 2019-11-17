@@ -45,4 +45,22 @@
             android:text="Aperte e segure se você não está se sentindo bem."
             android:textSize="20sp"/>
 
+    <TextView
+            android:id="@+id/txtCodigo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:gravity="center"
+            android:textStyle="italic"
+            android:text="seu código é:"
+            android:textSize="20sp"/>
+
+    <TextView
+            android:id="@+id/txtCodigoIdoso"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="..."
+            android:textSize="20sp"/>
+
 </LinearLayout>
