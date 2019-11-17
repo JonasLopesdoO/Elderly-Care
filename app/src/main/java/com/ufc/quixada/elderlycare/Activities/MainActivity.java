@@ -1,14 +1,12 @@
-package com.ufc.quixada.elderlycare;
+package com.ufc.quixada.elderlycare.Activities;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.TextView;
-import com.google.firebase.database.DatabaseReference;
+import com.ufc.quixada.elderlycare.Configuracao.Preferencias;
+import com.ufc.quixada.elderlycare.R;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -42,8 +40,6 @@ public class MainActivity extends AppCompatActivity {
         Preferencias preferencias = new Preferencias(MainActivity.this);
         Integer codigoIdoso = preferencias.getCodigoIdoso();
         String tipoUsuario = preferencias.getTipoUsuario();
-        Log.d("codigoIdoso", "algo" + codigoIdoso);
-        Log.d("tipoUsuario", "algo" + tipoUsuario);
         if(codigoIdoso != 0) {
             if(tipoUsuario.equals("idoso")) {
                 Intent intent = new Intent(MainActivity.this, IdosoNotificarActivity.class);

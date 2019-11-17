@@ -11,7 +11,7 @@
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
         android:orientation="vertical"
-        tools:context=".IdosoNotificarActivity">
+        tools:context=".Activities.IdosoNotificarActivity">
 
     <TextView
             android:id="@+id/textTitle"

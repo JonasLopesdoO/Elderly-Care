@@ -1,17 +1,18 @@
-package com.ufc.quixada.elderlycare;
+package com.ufc.quixada.elderlycare.Activities;
 
-import android.content.Intent;
 import android.os.Build;
 import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.google.firebase.database.DatabaseReference;
 import com.pedromassango.doubleclick.DoubleClick;
 import com.pedromassango.doubleclick.DoubleClickListener;
+import com.ufc.quixada.elderlycare.Configuracao.ConfiguracaoFirebase;
+import com.ufc.quixada.elderlycare.Configuracao.Preferencias;
+import com.ufc.quixada.elderlycare.R;
 
 public class IdosoNotificarActivity extends AppCompatActivity {
 

@@ -1,4 +1,4 @@
-package com.ufc.quixada.elderlycare;
+package com.ufc.quixada.elderlycare.Configuracao;
 
 import android.content.Context;
 import android.content.SharedPreferences;

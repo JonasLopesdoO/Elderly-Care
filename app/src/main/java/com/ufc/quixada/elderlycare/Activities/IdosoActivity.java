@@ -1,15 +1,16 @@
-package com.ufc.quixada.elderlycare;
+package com.ufc.quixada.elderlycare.Activities;
 
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.TextView;
-import android.widget.Toast;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.ValueEventListener;
+import com.ufc.quixada.elderlycare.Configuracao.ConfiguracaoFirebase;
+import com.ufc.quixada.elderlycare.Configuracao.Preferencias;
+import com.ufc.quixada.elderlycare.R;
 
 public class IdosoActivity extends AppCompatActivity {
     Integer codigo;

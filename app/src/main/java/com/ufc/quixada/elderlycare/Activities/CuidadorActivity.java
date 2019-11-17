@@ -1,4 +1,4 @@
-package com.ufc.quixada.elderlycare;
+package com.ufc.quixada.elderlycare.Activities;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -8,6 +8,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 import com.google.firebase.database.DatabaseReference;
+import com.ufc.quixada.elderlycare.Configuracao.ConfiguracaoFirebase;
+import com.ufc.quixada.elderlycare.Configuracao.Preferencias;
+import com.ufc.quixada.elderlycare.R;
 
 import java.util.HashMap;
 import java.util.Map;

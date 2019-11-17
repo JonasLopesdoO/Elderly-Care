@@ -1,4 +1,4 @@
-package com.ufc.quixada.elderlycare;
+package com.ufc.quixada.elderlycare.Configuracao;
 
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
