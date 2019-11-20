@@ -26,7 +26,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:layout_marginTop="200dp"
+            android:layout_marginTop="100dp"
             android:text="Você ainda não é cadastrado. Copie o número gerado abaixo e coloque no campo de texto de aplicativo do seu cuidador."
             android:textSize="20sp"/>
 
