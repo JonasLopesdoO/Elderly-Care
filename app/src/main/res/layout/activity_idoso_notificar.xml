@@ -33,7 +33,7 @@
             android:id="@+id/txtNotificacao2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="25dp"
             android:text="Aperte duas vezes se você deseja ir ao banheiro."
             android:textSize="20sp"/>
 
@@ -41,7 +41,7 @@
             android:id="@+id/txtNotificacao3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="25dp"
             android:text="Aperte e segure se você não está se sentindo bem."
             android:textSize="20sp"/>
 
@@ -62,5 +62,11 @@
             android:gravity="center"
             android:text="..."
             android:textSize="20sp"/>
+
+    <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_gravity="center"
+            android:id="@+id/imageViewIdoso"/>
 
 </LinearLayout>

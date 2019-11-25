@@ -5,6 +5,7 @@ import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.google.firebase.database.DatabaseReference;
@@ -20,6 +21,7 @@ public class IdosoNotificarActivity extends AppCompatActivity {
     TextView txtCodigoIdoso;
     Integer codigoIdoso;
     DatabaseReference idosoCuidadorRef = ConfiguracaoFirebase.getFirebase().child("idoso-cuidador");
+    ImageView imgView;
 
     @RequiresApi(api = Build.VERSION_CODES.M)
     @Override
@@ -28,6 +30,8 @@ public class IdosoNotificarActivity extends AppCompatActivity {
         setContentView(R.layout.activity_idoso_notificar);
 
         txtCodigoIdoso = findViewById(R.id.txtCodigoIdoso);
+        imgView = findViewById(R.id.imageViewIdoso);
+        imgView.setImageResource(R.mipmap.ic_sino);
         getSharedPreferences();
         layoutIdosoMain = findViewById(R.id.layoutIdosoMain);
 

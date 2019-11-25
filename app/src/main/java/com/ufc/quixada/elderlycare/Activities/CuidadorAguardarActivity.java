@@ -10,8 +10,11 @@ import android.media.RingtoneManager;
 import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.v4.app.NotificationCompat;
+import android.support.v4.app.NotificationManagerCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -21,8 +24,11 @@ import com.ufc.quixada.elderlycare.Configuracao.ConfiguracaoFirebase;
 import com.ufc.quixada.elderlycare.Configuracao.Preferencias;
 import com.ufc.quixada.elderlycare.R;
 
-public class CuidadorAguardarActivity extends AppCompatActivity {
+import static com.ufc.quixada.elderlycare.Activities.NotificationApp.CHANNEL_1_ID;
+import static com.ufc.quixada.elderlycare.Activities.NotificationApp.CHANNEL_2_ID;
 
+public class CuidadorAguardarActivity extends AppCompatActivity {
+    NotificationManagerCompat notificationManager;
     TextView txtCodigoIdoso;
     DatabaseReference idosoCuidadorRef;
     Integer codigoIdoso;
@@ -33,6 +39,7 @@ public class CuidadorAguardarActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cuidador_aguardar);
         txtCodigoIdoso = findViewById(R.id.txtCodigoIdoso);
+        notificationManager = NotificationManagerCompat.from(this);
         getSharedPreferences();
     }
 
@@ -46,12 +53,16 @@ public class CuidadorAguardarActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-
         idosoCuidadorRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 codigoFirebaseChild = dataSnapshot.getValue(Integer.class);
-                pushNotificacao();
+                if(codigoFirebaseChild == 3) {
+                    sendOnChannel2();
+                } else if(codigoFirebaseChild == 1 || codigoFirebaseChild == 2) {
+                    sendOnChannel1();
+                }
+                //pushNotificacao();
             }
 
             @Override
@@ -61,36 +72,42 @@ public class CuidadorAguardarActivity extends AppCompatActivity {
         });
     }
 
-    private void pushNotificacao() {
-        if(codigoFirebaseChild != 0) {
-            Intent intent = new Intent(CuidadorAguardarActivity.this, CuidadorAguardarActivity.class);
+    public void sendOnChannel1() {
+        Intent intent = new Intent(CuidadorAguardarActivity.this, CuidadorAguardarActivity.class);
+        PendingIntent pendingIntent = PendingIntent.getActivity(CuidadorAguardarActivity.this, 0, intent, 0);
+        Uri som = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
 
-            NotificationManager notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
-            PendingIntent pendingIntent = PendingIntent.getActivity(CuidadorAguardarActivity.this, 0, intent, 0);
+        Notification notification = new NotificationCompat.Builder(this, CHANNEL_1_ID)
+                .setSmallIcon(R.drawable.ic_alert)
+                .setContentTitle("IDOSO PRECISA DE CUIDADOS!")
+                .setContentText(setarMensagemCorretaNaNotificacao())
+                .setPriority(NotificationCompat.PRIORITY_HIGH)
+                .setCategory(NotificationCompat.CATEGORY_MESSAGE)
+                .setContentIntent(pendingIntent)
+                .setSound(som)
+                .build();
 
-            NotificationCompat.Builder builderNotification = new NotificationCompat.Builder(CuidadorAguardarActivity.this);
-            builderNotification.setTicker("Elderly Care");
-            builderNotification.setContentTitle("IDOSO PRECISA DE CUIDADOS!");
-            builderNotification.setSmallIcon(com.google.firebase.database.R.drawable.common_google_signin_btn_icon_light_focused);
-            builderNotification.setLargeIcon(BitmapFactory.decodeResource(getResources(), com.google.firebase.database.R.drawable.common_google_signin_btn_icon_light_normal_background));
-            builderNotification.setContentText(setarMensagemCorretaNaNotificacao());
-            builderNotification.setContentIntent(pendingIntent);
+        setarNotificacaoParaZero();
+        notificationManager.notify(1, notification);
+    }
 
-            setarNotificacaoParaZero();
+    public void sendOnChannel2() {
+        Intent intent = new Intent(CuidadorAguardarActivity.this, CuidadorAguardarActivity.class);
+        PendingIntent pendingIntent = PendingIntent.getActivity(CuidadorAguardarActivity.this, 0, intent, 0);
+        Uri som = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_ALARM);
 
-            Notification notification = builderNotification.build();
-            notification.vibrate = new long[]{150, 300, 150, 600};
-            notification.flags = Notification.FLAG_AUTO_CANCEL;
-            notificationManager.notify(com.google.firebase.database.R.drawable.common_google_signin_btn_icon_light_normal_background, notification);
+        Notification notification = new NotificationCompat.Builder(this, CHANNEL_2_ID)
+                .setSmallIcon(R.drawable.ic_alert)
+                .setContentTitle("IDOSO PRECISA DE CUIDADOS!")
+                .setContentText(setarMensagemCorretaNaNotificacao())
+                .setPriority(NotificationCompat.PRIORITY_MAX)
+                .setCategory(NotificationCompat.CATEGORY_ALARM)
+                .setContentIntent(pendingIntent)
+                .setSound(som)
+                .build();
 
-            try {
-                Uri som = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
-                Ringtone toque = RingtoneManager.getRingtone(CuidadorAguardarActivity.this, som);
-                toque.play();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
+        setarNotificacaoParaZero();
+        notificationManager.notify(2, notification);
     }
 
     private String setarMensagemCorretaNaNotificacao() {
